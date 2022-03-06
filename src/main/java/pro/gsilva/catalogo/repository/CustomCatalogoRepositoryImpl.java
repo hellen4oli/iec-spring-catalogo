@@ -20,4 +20,5 @@ public class CustomCatalogoRepositoryImpl implements CustomCatalogoRepository {
                 .setParameter("titulo", tituloUpper)
                 .getResultList();
     }
+
 }

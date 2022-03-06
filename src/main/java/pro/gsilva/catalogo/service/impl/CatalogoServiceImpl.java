@@ -12,22 +12,21 @@ import pro.gsilva.catalogo.service.CatalogoService;
 @Service
 public class CatalogoServiceImpl implements CatalogoService {
 
-    @Autowired 
+    @Autowired
     private CatalogoRepository catalogoRepository;
 
-
     @Override
-    public List<Musica> findAll() {       
+    public List<Musica> findAll() {
         return catalogoRepository.findAll();
     }
 
     @Override
-    public Musica findById(long id) {        
+    public Musica findById(long id) {
         return catalogoRepository.findById(id).get();
     }
 
     @Override
-    public Musica save(Musica musica) {        
+    public Musica save(Musica musica) {
         return catalogoRepository.save(musica);
     }
 
@@ -40,6 +39,11 @@ public class CatalogoServiceImpl implements CatalogoService {
     public List<Musica> findByTitulo(String titulo) {
         String tituloLike = titulo + "%";
         return catalogoRepository.findAllByTituloIsLike(tituloLike);
+    }
+
+    @Override
+    public List<Musica> findByCategoria(Long categoria) {
+        return catalogoRepository.findAllByCategoriaId(categoria);
     }
 
 }

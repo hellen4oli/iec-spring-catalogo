@@ -3,9 +3,6 @@ package pro.gsilva.catalogo.util;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.annotation.PostConstruct;
-
 import lombok.extern.slf4j.Slf4j;
 import pro.gsilva.catalogo.model.Categoria;
 import pro.gsilva.catalogo.model.Musica;
@@ -24,7 +21,7 @@ public class PopulaDados {
     @Autowired
     private CategoriaRepository categoriaRepository;
 
-//    @PostConstruct
+    // @PostConstruct
     public void cadastrarMusica() {
 
         List<Musica> listaMusica = new ArrayList<>();
@@ -35,19 +32,21 @@ public class PopulaDados {
         musica1.setAutor("Renato Russo");
         musica1.setData(LocalDate.now());
         musica1.setTitulo("Serenissima");
-        musica1.setLetra("Sou um animal sentimental Me apego facil mente a quem desperta meu desejo Tente me obrigar a fazer o que eu não quero E cê vai logo ver o que acontece Acho que entendo você quis me dizer Mas existem outras coisas Consegui meu equilí­brio cortejando a insanidade Tudo está perdido mas existem possibilidades Tí­nhamos a ideia, você mudou os planos Tí­nhamos um plano, você mudou de ideia Já passou, já passou - quem sabe outro dia Antes eu sonhava, agora já não durmo Quando foi que competimos pela primeira vez O que ninguém percebe é o que todo mundo sabe Não entendo terrorismo, falávamos de amizade Não estou mais interessado no que sinto.");
+        musica1.setLetra(
+                "Sou um animal sentimental Me apego facil mente a quem desperta meu desejo Tente me obrigar a fazer o que eu não quero E cê vai logo ver o que acontece Acho que entendo você quis me dizer Mas existem outras coisas Consegui meu equilí­brio cortejando a insanidade Tudo está perdido mas existem possibilidades Tí­nhamos a ideia, você mudou os planos Tí­nhamos um plano, você mudou de ideia Já passou, já passou - quem sabe outro dia Antes eu sonhava, agora já não durmo Quando foi que competimos pela primeira vez O que ninguém percebe é o que todo mundo sabe Não entendo terrorismo, falávamos de amizade Não estou mais interessado no que sinto.");
 
         musica2.setAutor("Robert Plant");
         musica2.setData(LocalDate.now());
         musica2.setTitulo("All My Love");
-        musica2.setLetra("Should I fall out of love, my fire in the light To chase a feather in the wind  Within the glow that weaves a cloak of delight There moves a thread that has no end For many hours and days that pass ever soon The tides have caused the flame to dim At last the arm is straight, the hand to the loom Is this to end or just begin? All of my love, all of my love All of my love to you, oh All of my love, all of my love, oh All of my love to you. I get a little bit lonely");
+        musica2.setLetra(
+                "Should I fall out of love, my fire in the light To chase a feather in the wind  Within the glow that weaves a cloak of delight There moves a thread that has no end For many hours and days that pass ever soon The tides have caused the flame to dim At last the arm is straight, the hand to the loom Is this to end or just begin? All of my love, all of my love All of my love to you, oh All of my love, all of my love, oh All of my love to you. I get a little bit lonely");
 
         listaMusica.add(musica1);
         listaMusica.add(musica2);
 
         for (Musica musica : listaMusica) {
             Musica salvarMusica = catalogoRepository.save(musica);
-            log.info("Musica de id " + salvarMusica.getId() + " criada");
+            // log.info("Musica de id " + salvarMusica.getId() + " criada");
         }
 
         List<Categoria> categorias = new ArrayList<>();
@@ -75,7 +74,7 @@ public class PopulaDados {
         categorias.add(c7);
         for (Categoria c : categorias) {
             Categoria categoriaSalva = categoriaRepository.save(c);
-            log.info("Categoria de id " + categoriaSalva.getId() + " criada");
+            // log.info("Categoria de id " + categoriaSalva.getId() + " criada");
 
         }
 

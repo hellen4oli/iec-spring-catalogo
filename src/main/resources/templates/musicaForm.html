@@ -35,6 +35,18 @@
                           th:text="${musica.letra}">
 
                 </textarea>
+
+                <div class="form-group">
+                    <select class="form-control" name="categoria.id">
+                        <option th:value="0">Selecione a Categoria</option>
+                        <option th:each="item : ${categorias}" 
+                            th:value="${item.id}"
+                            th:text="${item.nome}"
+                            th:selected="${musica.categoria?.id} == ${item.id}">
+                        </option>
+                    </select>
+                </div>
+               
                 <div class="alert alert-warning" th:if="${#fields.hasErrors('letra')}" th:errors="*{letra}"></div>
 
                 <small class="form-text text-muted">(*) Campos obrigatórios</small>
